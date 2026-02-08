@@ -73,6 +73,17 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
         };
+
+        my_tap_hold: my_tap_hold {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MY_TAP_HOLD";
+            bindings = <&mo>, <&to_layer_0>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <125>;
+        };
     };
 
     keymap {
@@ -80,10 +91,10 @@
 
         default_layer {
             bindings = <
-&kp Q             &kp W         &kp E         &kp R                 &kp T                                                 &kp Y        &kp U  &kp I               &kp O    &kp P
-&kp A             &kp S         &kp D         &kp F                 &kp G        &kp LS(LG(S))             &kp MINUS      &kp H        &kp J  &lt_to_layer_0 5 K  &kp L    &kp SQT
-&mt LEFT_SHIFT Z  &kp X         &kp C         &kp V                 &kp B        &kp COLON                 &kp SEMICOLON  &kp N        &kp M  &kp COMMA           &kp DOT  &kp SLASH
-&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt_to_layer_0 6 F15  &lt 2 SPACE  &lt_to_layer_0 3 F13      &kp BACKSPACE  &lt 1 ENTER                                      &kp DEL
+&kp Q             &kp W         &kp E         &kp R                 &kp T                                                 &kp Y        &kp U  &kp I             &kp O    &kp P
+&kp A             &kp S         &kp D         &kp F                 &kp G        &kp LS(LG(S))             &kp MINUS      &kp H        &kp J  &my_tap_hold 5 K  &kp L    &kp SQT
+&mt LEFT_SHIFT Z  &kp X         &kp C         &kp V                 &kp B        &kp COLON                 &kp SEMICOLON  &kp N        &kp M  &kp COMMA         &kp DOT  &kp SLASH
+&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt_to_layer_0 6 F15  &lt 2 SPACE  &lt_to_layer_0 3 F13      &kp BACKSPACE  &lt 1 ENTER                                    &kp DEL
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
@@ -120,19 +131,19 @@
 
         MOUSE {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans  &trans    &mkp MB3  &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &mkp MB1  &trans    &mkp MB2  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans    &trans    &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                &trans
+&trans  &trans  &trans  &trans  &trans                      &trans  &trans    &trans  &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &mkp MB1  &trans  &mkp MB2  &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &mkp MB3  &trans  &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                              &trans
             >;
         };
 
         SCROLL {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans    &trans    &mkp MB3  &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans    &mkp MB1  &trans    &mkp MB2  &mkp MB5
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans    &trans    &trans    &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &mkp MB4                                &trans
+&trans  &trans  &trans  &trans  &trans                      &trans    &trans    &trans  &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans    &mkp MB1  &trans  &mkp MB2  &mkp MB5
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans    &mkp MB3  &trans  &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &mkp MB4                              &trans
             >;
         };
 
