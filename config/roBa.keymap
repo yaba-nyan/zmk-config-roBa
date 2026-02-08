@@ -77,13 +77,11 @@
         my_tap_hold: my_tap_hold {
             compatible = "zmk,behavior-hold-tap";
             label = "MY_TAP_HOLD";
-            bindings = <&mo>, <&to_layer_0>;
+            bindings = <&mo>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <180>;
-            quick-tap-ms = <175>;
-            require-prior-idle-ms = <100>;
-            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            flavor = "balanced";
             hold-trigger-on-release;
             hold-trigger-key-positions = <20 21 18 30 41>;
         };
