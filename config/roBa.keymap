@@ -80,7 +80,7 @@
             bindings = <&mo>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <180>;
             flavor = "balanced";
             hold-trigger-on-release;
             hold-trigger-key-positions = <20 21 18 30 41>;
@@ -95,7 +95,7 @@
 &kp Q             &kp W         &kp E         &kp R                 &kp T                                                    &kp Y            &kp U  &kp I             &kp O    &kp P
 &kp A             &kp S         &kp D         &kp F                 &kp G        &kp LS(LG(S))             &kp MINUS         &kp H            &kp J  &my_tap_hold 5 K  &kp L    &kp SEMICOLON
 &mt LEFT_SHIFT Z  &kp X         &kp C         &kp V                 &kp B        &kp COLON                 &kp SINGLE_QUOTE  &kp N            &kp M  &kp COMMA         &kp DOT  &kp SLASH
-&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt_to_layer_0 6 F15  &lt 2 SPACE  &lt_to_layer_0 3 F13      &kp BACKSPACE     &lt 1 BACKSPACE                                    &kp DEL
+&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt_to_layer_0 6 F15  &lt 2 SPACE  &lt_to_layer_0 2 F13      &kp BACKSPACE     &lt 1 BACKSPACE                                    &kp DEL
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
@@ -103,10 +103,10 @@
 
         FUNCTION {
             bindings = <
-&kp F1   &kp F2   &kp F3  &kp F4  &kp F5                           &kp F1             &kp HOME        &kp UP_ARROW       &kp END          &kp LG(TAB)
-&kp F6   &kp F7   &kp F8  &kp F9  &kp F10  &trans      &kp LC(W)   &kp C_VOLUME_DOWN  &kp LEFT_ARROW  &kp DOWN_ARROW     &kp RIGHT_ARROW  &kp C_VOLUME_UP
-&kp F11  &kp F12  &trans  &trans  &trans   &trans      &kp LA(F4)  &kp LS(LC(TAB))    &kp PAGE_UP     &kp LC(BACKSPACE)  &kp PAGE_DOWN    &kp LC(TAB)
-&trans   &trans   &trans  &trans  &trans   &trans      &trans      &trans                                                                 &kp C_SLEEP
+&kp F1   &kp F2   &kp F3  &kp F4  &kp F5                           &kp F1           &kp HOME        &kp UP_ARROW       &kp END          &kp LG(TAB)
+&kp F6   &kp F7   &kp F8  &kp F9  &kp F10  &trans      &kp LC(W)   &kp LS(LC(TAB))  &kp LEFT_ARROW  &kp DOWN_ARROW     &kp RIGHT_ARROW  &kp LC(TAB)
+&kp F11  &kp F12  &trans  &trans  &trans   &trans      &kp LA(F4)  &kp C_VOL_DN     &kp PAGE_UP     &kp LC(BACKSPACE)  &kp PAGE_DOWN    &kp C_VOL_UP
+&trans   &trans   &trans  &trans  &trans   &trans      &trans      &trans                                                               &kp C_SLEEP
             >;
         };
 
@@ -132,19 +132,19 @@
 
         MOUSE {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans    &trans    &trans  &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &mkp MB3  &mkp MB1  &trans  &mkp MB2  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans    &trans    &trans  &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                &trans
+&trans  &trans  &trans  &trans  &trans                      &trans    &trans    &trans    &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &mkp MB3  &mkp MB1  &trans    &mkp MB2  &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans    &trans    &mkp MB3  &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                  &trans
             >;
         };
 
         SCROLL {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans    &trans    &trans  &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &mkp MB3  &mkp MB1  &trans  &mkp MB2  &mkp MB5
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans    &trans    &trans  &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &mkp MB4                              &trans
+&trans  &trans  &trans  &trans  &trans                      &trans    &trans    &trans    &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &mkp MB3  &mkp MB1  &trans    &mkp MB2  &mkp MB5
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans    &trans    &mkp MB3  &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &mkp MB4                                &trans
             >;
         };
 
