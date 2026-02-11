@@ -93,7 +93,7 @@
         default_layer {
             bindings = <
 &kp Q             &kp W         &kp E         &kp R                 &kp T                                                    &kp Y            &kp U  &kp I             &kp O    &kp P
-&kp A             &kp S         &kp D         &kp F                 &kp G        &kp LS(LG(S))             &kp MINUS         &kp H            &kp J  &my_tap_hold 5 K  &kp L    &kp SEMICOLON
+&kp A             &kp S         &kp D         &kp F                 &kp G        &kp LS(LG(S))             &kp SEMICOLON     &kp H            &kp J  &my_tap_hold 5 K  &kp L    &kp MINUS
 &mt LEFT_SHIFT Z  &kp X         &kp C         &kp V                 &kp B        &kp COLON                 &kp SINGLE_QUOTE  &kp N            &kp M  &kp COMMA         &kp DOT  &kp SLASH
 &kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt_to_layer_0 6 F15  &lt 2 SPACE  &lt_to_layer_0 2 F13      &kp ENTER         &lt 1 BACKSPACE                                    &kp DEL
             >;
@@ -132,19 +132,19 @@
 
         MOUSE {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans    &trans    &trans    &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &mkp MB3  &mkp MB1  &trans    &mkp MB2  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans    &trans    &mkp MB3  &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                  &trans
+&trans  &trans  &trans  &trans  &trans                      &trans  &trans    &trans    &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &mkp MB1  &trans    &mkp MB2  &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans    &mkp MB3  &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                &trans
             >;
         };
 
         SCROLL {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans    &trans    &trans    &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &mkp MB3  &mkp MB1  &trans    &mkp MB2  &mkp MB5
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans    &trans    &mkp MB3  &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &mkp MB4                                &trans
+&trans  &trans  &trans  &trans  &trans                      &trans    &trans     &trans    &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans    &mkp MB1   &trans    &mkp MB2  &mkp MB5
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans    &kp LC(W)  &mkp MB3  &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &mkp MB4                                 &trans
             >;
         };
 
