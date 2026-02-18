@@ -62,6 +62,13 @@
             bindings = <&to 0 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
             label = "TO_LAYER_0";
         };
+
+        sleep_macro: sleep_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LG(X)>, <&macro_wait_time 200>, <&kp U>, <&macro_wait_time 200>, <&kp S>;
+            label = "SLEEP_MACRO";
+        };
     };
 
     behaviors {
@@ -106,7 +113,7 @@
 &kp F1  &kp F2  &kp F3  &kp F4   &kp F5                            &kp F1           &kp HOME        &kp UP_ARROW       &kp END          &kp LG(TAB)
 &kp F6  &kp F7  &trans  &kp F8   &kp F9   &kp F10      &kp LC(W)   &kp LS(LC(TAB))  &kp LEFT_ARROW  &kp DOWN_ARROW     &kp RIGHT_ARROW  &kp LC(TAB)
 &trans  &trans  &trans  &kp F11  &kp F12  &trans       &kp LA(F4)  &kp C_VOL_DN     &kp PAGE_UP     &kp LC(BACKSPACE)  &kp PAGE_DOWN    &kp C_VOL_UP
-&trans  &trans  &trans  &trans   &trans   &trans       &trans      &trans                                                               &kp C_SLEEP_MODE
+&trans  &trans  &trans  &trans   &trans   &trans       &trans      &trans                                                               &sleep_macro
             >;
         };
 
