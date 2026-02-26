@@ -32,26 +32,19 @@
         tab {
             bindings = <&kp TAB>;
             key-positions = <11 12>;
+            layers = <1 3 2 4 5 6 0>;
         };
 
         shift_tab {
             bindings = <&kp LS(TAB)>;
             key-positions = <12 13>;
+            layers = <1 2 3 4 5 0 6>;
         };
 
         esc {
             bindings = <&to_layer_0 ESC>;
             key-positions = <11 10>;
-        };
-
-        double_quotation {
-            bindings = <&kp SPACE>;
-            key-positions = <20 21>;
-        };
-
-        eq {
-            bindings = <&kp EQUAL>;
-            key-positions = <24 25>;
+            layers = <0 1 2 3 4 5 6>;
         };
     };
 
@@ -164,18 +157,9 @@
         Bluetooth {
             bindings = <
 &kp LC(Q)  &kp LC(W)  &kp LC(E)  &kp LC(R)  &kp LC(T)                           &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-&kp LC(A)  &kp LC(S)  &kp LC(D)  &kp LC(F)  &kp LC(G)  &to 8       &trans       &trans        &trans        &trans        &trans        &trans
+&kp LC(A)  &kp LC(S)  &kp LC(D)  &kp LC(F)  &kp LC(G)  &to 7       &trans       &trans        &trans        &trans        &trans        &trans
 &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LC(B)  &trans      &bootloader  &trans        &trans        &trans        &trans        &bt BT_CLR
 &kp SPACE  &trans     &trans     &trans     &trans     &trans      &trans       &trans                                                  &bt BT_CLR_ALL
-            >;
-        };
-
-        layer_7 {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                          &trans
             >;
         };
 
