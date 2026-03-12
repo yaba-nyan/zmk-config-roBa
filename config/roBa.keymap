@@ -1,9 +1,9 @@
+#include <input/processors.dtsi>
+#include <dt-bindings/zmk/input_transform.h>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
-#include <input/processors.dtsi>
-#include <dt-bindings/zmk/input_transform.h>
 
 &mt {
     flavor = "balanced";
@@ -40,6 +40,11 @@
             key-positions = <11 10>;
             layers = <0 2 3 4 1 5 6>;
         };
+
+        snap-to-next-disp {
+            bindings = <&kp LS(LG(RIGHT))>;
+            key-positions = <11 12 13>;
+        };
     };
 
     macros {
@@ -55,7 +60,7 @@
             #binding-cells = <0>;
             bindings =
                 <&kp LG(X)>,
-                <&macro_wait_time 500>,
+                <&macro_wait_time 1000>,
                 <&kp U>,
                 <&macro_wait_time 500>,
                 <&kp S>;
@@ -112,10 +117,10 @@
 
         FUNCTION {
             bindings = <
-&kp F1  &kp F2  &kp F3  &kp F4   &kp F5                            &kp F1           &kp HOME        &kp UP_ARROW       &kp END          &kp LG(TAB)
-&kp F6  &kp F7  &trans  &kp F8   &kp F9   &kp F10      &kp LC(W)   &kp LS(LC(TAB))  &kp LEFT_ARROW  &kp DOWN_ARROW     &kp RIGHT_ARROW  &kp LC(TAB)
-&trans  &trans  &trans  &kp F11  &kp F12  &trans       &kp LA(F4)  &kp C_VOL_DN     &kp PAGE_UP     &kp LC(BACKSPACE)  &kp PAGE_DOWN    &kp C_VOL_UP
-&trans  &trans  &trans  &trans   &trans   &trans       &trans      &trans                                                               &sleep_macro
+&kp F1  &kp F2  &kp F3  &kp F4   &kp F5                            &kp LS(LG(LEFT))  &kp HOME        &kp UP_ARROW       &kp END          &kp LG(TAB)
+&kp F6  &kp F7  &trans  &kp F8   &kp F9   &kp F10      &kp LC(W)   &kp LS(LC(TAB))   &kp LEFT_ARROW  &kp DOWN_ARROW     &kp RIGHT_ARROW  &kp LC(TAB)
+&trans  &trans  &trans  &kp F11  &kp F12  &trans       &kp LA(F4)  &kp C_VOL_DN      &kp PAGE_UP     &kp LC(BACKSPACE)  &kp PAGE_DOWN    &kp C_VOL_UP
+&trans  &trans  &trans  &trans   &trans   &trans       &trans      &trans                                                                &sleep_macro
             >;
         };
 
