@@ -71,14 +71,28 @@
         dbl_click: dbl_click {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&mkp MB1 &mkp MB1>;
+            bindings
+                = <&macro_press &mkp MB1>
+                , <&macro_release &mkp MB1>
+                , <&macro_press &mkp MB1>
+                , <&macro_pause_for_release>
+                , <&macro_release &mkp MB1>
+                ;
             label = "DBL_CLICK";
         };
 
         tri_click: tri_click {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&mkp MB1 &mkp MB1 &mkp MB1>;
+            bindings
+                = <&macro_press &mkp MB1>
+                , <&macro_release &mkp MB1>
+                , <&macro_press &mkp MB1>
+                , <&macro_release &mkp MB1>
+                , <&macro_press &mkp MB1>
+                , <&macro_pause_for_release>
+                , <&macro_release &mkp MB1>
+                ;
             label = "TRI_CLICK";
         };
     };
