@@ -67,6 +67,20 @@
 
             label = "SLEEP_MACRO";
         };
+
+        dbl_click: dbl_click {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&mkp MB1 &mkp MB1>;
+            label = "DBL_CLICK";
+        };
+
+        tri_click: tri_click {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&mkp MB1 &mkp MB1 &mkp MB1>;
+            label = "TRI_CLICK";
+        };
     };
 
     behaviors {
@@ -110,7 +124,7 @@
             bindings = <
 &trans  &trans  &trans  &trans  &trans                      &trans  &trans    &trans    &trans    &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &mkp MB1  &trans    &mkp MB2  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans    &mkp MB3  &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &dbl_click  &mkp MB3  &tri_click  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                &trans
             >;
         };
