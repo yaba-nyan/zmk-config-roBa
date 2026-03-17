@@ -21,6 +21,7 @@ include:
  - board: seeeduino_xiao_ble
    shield: roBa_R
    snippet: studio-rpc-usb-uart
+   cmake-args: -DZMK_EXTRA_MODULES='/__w/zmk-config-roBa/zmk-config-roBa;/__w/zmk-config-roBa/zmk-config-roBa/badjeff-pmw'
  - board: seeeduino_xiao_ble
    shield: roBa_L
  - board: seeeduino_xiao_ble
