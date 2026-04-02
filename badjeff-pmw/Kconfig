@@ -74,12 +74,15 @@ config PMW3610_ALT_REST2_DOWNSHIFT_TIME_MS
       Time after which sensor goes from REST2 to REST3 mode.
 
 config PMW3610_ALT_MOTION_THRESHOLD
-    int "PMW3610 minimum motion threshold to report"
+    int "PMW3610 motion confirmation threshold"
     default 0
     help
-      Minimum accumulated motion magnitude (in sensor counts) required before
-      reporting movement. Helps prevent vibration from keystrokes triggering
-      spurious cursor movement. Set to 0 to disable (report all motion).
+      Accumulated motion magnitude required to confirm intentional movement.
+      Once confirmed, all subsequent motion is reported without filtering
+      until motion stops, preserving OS mouse acceleration curves.
+      Vibration from keystrokes is blocked because it produces brief, small
+      deltas that never reach the threshold before the sensor goes idle.
+      Requires REPORT_INTERVAL_MIN > 0. Set to 0 to disable.
 
 config PMW3610_ALT_REST1_SAMPLE_TIME_MS
     int "PMW3610's sample time in REST1 stage"

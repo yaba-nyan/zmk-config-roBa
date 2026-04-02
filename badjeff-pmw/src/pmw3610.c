@@ -435,6 +435,11 @@ static int pmw3610_report_data(const struct device *dev) {
     static int64_t dx = 0;
     static int64_t dy = 0;
 
+#if CONFIG_PMW3610_ALT_MOTION_THRESHOLD > 0
+    static bool motion_confirmed = false;
+    static int32_t motion_magnitude_accum = 0;
+#endif
+
 #if CONFIG_PMW3610_ALT_REPORT_INTERVAL_MIN > 0
     static int64_t last_smp_time = 0;
     static int64_t last_rpt_time = 0;
@@ -473,6 +478,10 @@ static int pmw3610_report_data(const struct device *dev) {
     if (now - last_smp_time >= CONFIG_PMW3610_ALT_REPORT_INTERVAL_MIN) {
         dx = 0;
         dy = 0;
+#if CONFIG_PMW3610_ALT_MOTION_THRESHOLD > 0
+        motion_confirmed = false;
+        motion_magnitude_accum = 0;
+#endif
     }
     last_smp_time = now;
 #endif
@@ -480,6 +489,14 @@ static int pmw3610_report_data(const struct device *dev) {
     // accumulate delta until report in next iteration
     dx += x;
     dy += y;
+
+#if CONFIG_PMW3610_ALT_MOTION_THRESHOLD > 0
+    if (!motion_confirmed) {
+        int16_t abs_x = x < 0 ? -x : x;
+        int16_t abs_y = y < 0 ? -y : y;
+        motion_magnitude_accum += abs_x > abs_y ? abs_x : abs_y;
+    }
+#endif
 
 #if CONFIG_PMW3610_ALT_REPORT_INTERVAL_MIN > 0
     // strict to report inerval
@@ -493,9 +510,11 @@ static int pmw3610_report_data(const struct device *dev) {
     int16_t ry = (int16_t)CLAMP(dy, INT16_MIN, INT16_MAX);
 
 #if CONFIG_PMW3610_ALT_MOTION_THRESHOLD > 0
-    if (abs(rx) < CONFIG_PMW3610_ALT_MOTION_THRESHOLD &&
-        abs(ry) < CONFIG_PMW3610_ALT_MOTION_THRESHOLD) {
-        return 0;
+    if (!motion_confirmed) {
+        if (motion_magnitude_accum < CONFIG_PMW3610_ALT_MOTION_THRESHOLD) {
+            return 0;
+        }
+        motion_confirmed = true;
     }
 #endif
 
