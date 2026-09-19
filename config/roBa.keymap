@@ -10,6 +10,13 @@
     quick-tap-ms = <0>;
 };
 
+&zip_temp_layer {
+    // 文字入力中の微小な動きで、M などがマウスクリックに化けるのを防ぐ。
+    require-prior-idle-ms = <250>;
+    // マウス操作用の J / L / M / COMMA / DOT 以外を押したら解除する。
+    excluded-positions = <18 20 30 31 32>;
+};
+
 &trackball_listener {
     // Windows: 加速ON・速度8付近を目安に、通常の移動量を40%へ。
     // zip_xy_scaler は端数を蓄積するため、小さい移動も切り捨てない。
