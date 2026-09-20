@@ -13,14 +13,14 @@
 &zip_temp_layer {
     // 文字入力中の微小な動きで、M などがマウスクリックに化けるのを防ぐ。
     require-prior-idle-ms = <250>;
-    // マウス操作用の J / L / M / COMMA / DOT 以外を押したら解除する。
-    excluded-positions = <18 20 30 31 32>;
+    // excluded-positions は指定しない。修飾キーなどの押下で即解除させない。
 };
 
 &trackball_listener {
     // Windows: 加速ON・速度8付近を目安に、通常の移動量を40%へ。
     // zip_xy_scaler は端数を蓄積するため、小さい移動も切り捨てない。
     // OSの加速カーブも変わるので、旧設定の速度2との厳密な換算ではない。
+    // 自動解除は従来どおり最後の移動から700ms後。
     input-processors = <&zip_temp_layer 1 700 &zip_xy_scaler 2 5>;
 
     scroll {
