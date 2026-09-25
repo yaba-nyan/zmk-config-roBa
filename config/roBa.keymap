@@ -319,7 +319,8 @@
 
             #binding-cells = <2>;
             tapping-term-ms = <180>;
-            flavor = "balanced";
+            // 速い klm などで L/J/M の割り込みをホールドと判定しない。
+            flavor = "tap-preferred";
             // 180ms 以内の O の押下で K をタップと確定し、koj/kom へ判定を持ち越さない。
             hold-trigger-key-positions = <20 21 18 30 41>;
         };
