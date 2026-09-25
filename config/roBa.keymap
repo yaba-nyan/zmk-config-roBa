@@ -11,9 +11,11 @@
 };
 
 &zip_temp_layer {
-    // 文字入力中の微小な動きで、M などがマウスクリックに化けるのを防ぐ。
+    // キー入力直後の微小なトラックボール移動では自動マウスを開始しない。
     require-prior-idle-ms = <250>;
-    // excluded-positions は指定しない。修飾キーなどの押下で即解除させない。
+    // 入力前から自動マウスが有効でも、K/O などの文字キーで解除する。
+    // マウス操作キーと専用修飾キーでは維持する。
+    excluded-positions = <18 20 30 31 32 34 35 36>;
 };
 
 &trackball_listener {
@@ -318,7 +320,7 @@
             #binding-cells = <2>;
             tapping-term-ms = <180>;
             flavor = "balanced";
-            hold-trigger-on-release;
+            // 180ms 以内の O の押下で K をタップと確定し、koj/kom へ判定を持ち越さない。
             hold-trigger-key-positions = <20 21 18 30 41>;
         };
     };
